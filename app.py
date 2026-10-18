@@ -47,6 +47,10 @@ try:
     validation=json.loads((ARTIFACTS/"validation.json").read_text(encoding="utf-8"))
 except (OSError,ValueError,KeyError) as error:
     st.error(f"No se pudo cargar esta versión: {error}")
+    if "versiones instaladas" in str(error):
+        from agrocebada.common import dependencies
+        expected=json.loads((ARTIFACTS/f"contract_{name}.json").read_text(encoding="utf-8"))["dependencies"]
+        st.json({"entorno_del_modelo":expected,"entorno_del_servidor":dependencies()},expanded=True)
     st.info("Revise la guía local y restaure los datos y modelos de la misma versión antes de continuar.")
     st.stop()
 
