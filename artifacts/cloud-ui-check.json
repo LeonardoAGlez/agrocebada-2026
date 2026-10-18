@@ -1,0 +1,59 @@
+{
+  "checks": [
+    {
+      "step": "initial",
+      "rss_mib": 258.5
+    },
+    {
+      "step": "selected consult",
+      "rss_mib": 259.8
+    },
+    {
+      "step": "selected prediction",
+      "rss_mib": 259.3
+    },
+    {
+      "step": "selected explanation",
+      "rss_mib": 273.3
+    },
+    {
+      "step": "selected Validaci\u00f3n",
+      "rss_mib": 275.9
+    },
+    {
+      "step": "selected Fuentes",
+      "rss_mib": 277.0
+    },
+    {
+      "step": "selected Consultar parcelas",
+      "rss_mib": 277.9
+    },
+    {
+      "step": "official consult",
+      "rss_mib": 281.6
+    },
+    {
+      "step": "official prediction",
+      "rss_mib": 282.3
+    },
+    {
+      "step": "official explanation",
+      "rss_mib": 283.9
+    },
+    {
+      "step": "official Validaci\u00f3n",
+      "rss_mib": 284.4
+    },
+    {
+      "step": "official Fuentes",
+      "rss_mib": 285.1
+    },
+    {
+      "step": "official Consultar parcelas",
+      "rss_mib": 286.1
+    }
+  ],
+  "peak_rss_mib": 286.1,
+  "seconds": 25.96,
+  "platform": "Windows AppTest; not a production capacity guarantee"
+}

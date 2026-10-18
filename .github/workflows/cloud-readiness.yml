@@ -1,0 +1,29 @@
+name: Cloud readiness
+on:
+  push:
+    branches: [main]
+  pull_request:
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  linux:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    env:
+      OMP_NUM_THREADS: '1'
+      OPENBLAS_NUM_THREADS: '1'
+      MKL_NUM_THREADS: '1'
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+          cache: pip
+          cache-dependency-path: requirements.lock
+      - name: Install Community Cloud dependencies
+        run: python -m pip install -r requirements.txt
+      - name: Verify models and all 59 predictions
+        run: python -m agrocebada.cli verify
+      - name: Test data, models and dashboard
+        run: python -m pytest -q

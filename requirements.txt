@@ -1,0 +1,3 @@
+# Community Cloud installs the validated environment and local source package.
+-r requirements.lock
+-e .
