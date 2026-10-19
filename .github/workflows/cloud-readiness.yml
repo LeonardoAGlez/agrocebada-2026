@@ -26,4 +26,4 @@ jobs:
       - name: Verify models and all 59 predictions
         run: python -m agrocebada.cli verify
       - name: Test data, models and dashboard
-        run: python -m pytest -q
+        run: python -m pytest -q tests experiments/estratificacion-pyr-20261018/tests experiments/fisiologia-siniestros-20261018/tests

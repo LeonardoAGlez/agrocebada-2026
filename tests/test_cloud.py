@@ -43,3 +43,28 @@ def test_selective_satellite_read_matches_original_observations():
                          ('date', '>=', pd.Timestamp('2025-04-01')), ('date', '<=', pd.Timestamp('2025-10-31'))]
             ).sort_values('date').reset_index(drop=True)
             pd.testing.assert_frame_equal(actual, expected)
+
+
+def test_r08_export_and_intervals_match_incoming_research():
+    import numpy as np
+    from agrocebada.common import ARTIFACTS, ID, TARGET
+    from agrocebada.inference import Predictor, official_export
+    p = Predictor('selected')
+    expected = pd.read_csv(ROOT / 'experiments/estratificacion-pyr-20261018/runs/R08/predictions_59.csv').set_index(ID)
+    exported = official_export(p)
+    np.testing.assert_allclose(exported[TARGET], expected.loc[exported[ID], TARGET], rtol=0, atol=1e-10)
+    saved = pd.read_csv(ARTIFACTS / 'predictions_59_intervals.csv').set_index(ID)
+    actual = p.predict(exported[ID])
+    for column in [TARGET, 'INTERVAL_LOW', 'INTERVAL_HIGH']:
+        np.testing.assert_allclose(actual[column], saved.loc[actual[ID], column], rtol=0, atol=1e-10)
+    assert actual.INTERVAL_LOW.ge(0).all()
+
+
+def test_precomputed_r08_does_not_claim_base_model_explanations():
+    from agrocebada.inference import Predictor
+    p = Predictor('selected')
+    effects, info = p.explain(p.master.ID_POLIGONO.iloc[0])
+    assert effects.empty and info['available'] is False and info['exact_additive'] is False
+    official = Predictor('official')
+    effects, info = official.explain(official.master.ID_POLIGONO.iloc[0])
+    assert not effects.empty and info.get('available', True)

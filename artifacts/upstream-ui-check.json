@@ -1,0 +1,59 @@
+{
+  "checks": [
+    {
+      "step": "initial R08",
+      "rss_mib": 256.8
+    },
+    {
+      "step": "selected consult",
+      "rss_mib": 259.3
+    },
+    {
+      "step": "selected estimate",
+      "rss_mib": 260.6
+    },
+    {
+      "step": "selected explanation or availability notice",
+      "rss_mib": 255.5
+    },
+    {
+      "step": "selected Validaci\u00f3n",
+      "rss_mib": 252.1
+    },
+    {
+      "step": "selected Fuentes",
+      "rss_mib": 253.0
+    },
+    {
+      "step": "selected Consultar parcelas",
+      "rss_mib": 253.0
+    },
+    {
+      "step": "official consult",
+      "rss_mib": 256.0
+    },
+    {
+      "step": "official estimate",
+      "rss_mib": 256.3
+    },
+    {
+      "step": "official explanation or availability notice",
+      "rss_mib": 278.6
+    },
+    {
+      "step": "official Validaci\u00f3n",
+      "rss_mib": 281.2
+    },
+    {
+      "step": "official Fuentes",
+      "rss_mib": 281.7
+    },
+    {
+      "step": "official Consultar parcelas",
+      "rss_mib": 283.1
+    }
+  ],
+  "source_commit": "89b2f67",
+  "no_app_errors": true,
+  "platform": "Windows AppTest; not a concurrent production benchmark"
+}

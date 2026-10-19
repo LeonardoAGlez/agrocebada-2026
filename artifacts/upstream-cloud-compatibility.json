@@ -1,0 +1,34 @@
+{
+  "date": "2026-10-18",
+  "source_repository": "https://github.com/Elypsoon/Reto-Cebada",
+  "source_branch": "cambios-experimentos-2026-10-17",
+  "source_commit": "89b2f67abe20bfb5c913f315182d3c1f3ea3f4b7",
+  "source_code_hash": "324a3df6fdd06651ee271b338ca380d5e045e5951e37e67802e9d483f00ccc14",
+  "cloud_code_hash": "8fb0c8f654aa01edfc6540e7a939d52904e3d7731e81dd5ff5656dea0d2fd002",
+  "cloud_changed_source_files": [
+    "cli.py",
+    "inference.py"
+  ],
+  "retrained": false,
+  "models": {
+    "selected": {
+      "source_model_hash": "9c7d7bb24ff16b43fcfe5ae81385cb84866d6c1d4e401a1edea7031dff05f61d",
+      "cloud_model_hash": "01fe16367c799c44ed6e0077386b15a4794dd41a19a330cd286c386671db8425",
+      "source_embedded_code_hash": "324a3df6fdd06651ee271b338ca380d5e045e5951e37e67802e9d483f00ccc14",
+      "parcels_compared": 197,
+      "predictions_and_intervals_exactly_equal": true
+    },
+    "official": {
+      "source_model_hash": "26d128e2e953c5296d8977fef753c71b4cb7fa6a320c1bef5dec04489cc859fe",
+      "cloud_model_hash": "500650c3025f316fc95e2838711f9242c483e6e2e39620333bf22927fefd841d",
+      "source_embedded_code_hash": "6e716d736573833d919d0693562e9028184376d50e900179c0884110a1d0c996",
+      "parcels_compared": 197,
+      "predictions_and_intervals_exactly_equal": true
+    }
+  },
+  "selected_model": "R08; precomputed estimates for the official parcels",
+  "included_research": [
+    "estratificacion-pyr-20261018",
+    "fisiologia-siniestros-20261018"
+  ]
+}

@@ -11,7 +11,9 @@ pytest-cache-files*/
 !.env.example
 Reto-Cebada/
 DataSet/
-experiments/
+experiments/*
+!experiments/estratificacion-pyr-20261018/
+!experiments/fisiologia-siniestros-20261018/
 verification/
 artifacts/versions/
 artifacts/app-server.*
