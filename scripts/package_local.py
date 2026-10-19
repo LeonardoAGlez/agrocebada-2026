@@ -11,13 +11,13 @@ from agrocebada.common import ROOT,ARTIFACTS,sha256,write_json
 dist=ROOT/"dist";dist.mkdir(exist_ok=True)
 archive=dist/"agrocebada-local-2025-10-31.zip"
 files=[]
-for folder in ["src","tests","scripts","docs","data","artifacts","openspec","Reto-Cebada",".streamlit","output/pdf"]:
+for folder in ["src","tests","scripts","docs","data","artifacts","openspec","Reto-Cebada",".streamlit","output/pdf","ui_assets"]:
     for p in (ROOT/folder).rglob("*"):
         rel=p.relative_to(ROOT)
         if p.is_file() and not any(x in rel.parts for x in [".git","__pycache__",".pytest_cache"]):
             if p.name.startswith("app-server.") or p.name=="package-check.json":continue
             files.append(p)
-for name in ["app.py","pyproject.toml","requirements.lock","README.md","package.json","package-lock.json",".gitignore"]:
+for name in ["app.py","dashboard_ui.py","pyproject.toml","requirements.lock","README.md","package.json","package-lock.json",".gitignore"]:
     p=ROOT/name
     if p.exists():files.append(p)
 with zipfile.ZipFile(archive,"w",compression=zipfile.ZIP_DEFLATED,compresslevel=6) as z:

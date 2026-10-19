@@ -47,3 +47,18 @@ def test_app_incompatible_artifact_has_clear_error(monkeypatch):
     at=AppTest.from_file(str(ROOT/"app.py"),default_timeout=30).run()
     assert not at.exception
     assert at.error and "incompatibles" in at.error[0].value
+
+
+def test_redesigned_navigation_and_r08_detail():
+    st.cache_resource.clear(); st.cache_data.clear()
+    at=AppTest.from_file(str(ROOT/'app.py'),default_timeout=30).run()
+    assert not at.exception and not at.error
+    assert at.radio(key='view').value=='Consultar parcelas'
+    at.button(key='calculate').click().run()
+    assert not at.exception and 'INTERVAL_LOW' in at.session_state['result']['row']
+    for view in ['Validación','Fuentes','Consultar parcelas']:
+        at.radio(key='view').set_value(view).run()
+        assert not at.exception and not at.error
+    at.selectbox(key='model').select('official').run()
+    at.button(key='calculate').click().run()
+    assert not at.exception and at.session_state['result']['model']=='official'

@@ -5,3 +5,22 @@ gatherUsageStats = false
 address = "0.0.0.0"
 port = 8501
 headless = true
+
+[theme]
+base = "light"
+primaryColor = "#285947"
+backgroundColor = "#f4f6f1"
+secondaryBackgroundColor = "#e9eee6"
+textColor = "#20382e"
+font = "sans-serif"
+headingFont = "sans-serif"
+baseRadius = "1rem"
+buttonRadius = "full"
+borderColor = "#dce4d9"
+showWidgetBorder = false
+chartCategoricalColors = ["#285947", "#b7984a", "#88a876", "#637c96", "#c6d98e"]
+
+[theme.sidebar]
+backgroundColor = "#edf1e9"
+secondaryBackgroundColor = "#ffffff"
+textColor = "#294438"
